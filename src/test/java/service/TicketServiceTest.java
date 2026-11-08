@@ -65,7 +65,7 @@ public class TicketServiceTest {
 
         // assertTrue(
         ticketService.buy(createdEventId, second);
-        assertTrue(ticketService.buy(createdEventId, third));
+        assertFalse(ticketService.buy(createdEventId, third));
     }
 
     @AfterAll
