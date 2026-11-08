@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -66,6 +67,13 @@ public class TicketServiceTest {
         // assertTrue(
         ticketService.buy(createdEventId, second);
         assertFalse(ticketService.buy(createdEventId, third));
+    }
+
+    @Test
+    @Order(4)
+    void userCanReturnTicket() {
+        assertTrue(new TicketService().returnTicket(createdEventId, firstCustomer));
+        assertEquals(100, firstCustomer.getBalance());
     }
 
     @AfterAll
