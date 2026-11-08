@@ -21,7 +21,7 @@ public class Main {
         TicketService ticketService = new TicketService();
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Добро пожаловать");
+        System.out.println("Добро пожаловат");
         System.out.println("Введите логин");
         String login = scanner.nextLine();
         CustomerService customerService = new CustomerService();
