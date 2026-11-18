@@ -38,7 +38,7 @@ public class TicketServiceTest {
                 .max(Integer::compareTo)
                 .orElse(0) + 1;
 
-        Event event = new Event(new ArrayList<>(), LocalDateTime.now(), "buy-test", 2, 10);
+        Event event = new Event(new ArrayList<>(), LocalDateTime.now(), "buy-test-", 2, 10);
         event.setId(eventId);
         events.add(event);
         writeEvents(events);
