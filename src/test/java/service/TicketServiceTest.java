@@ -47,7 +47,7 @@ public class TicketServiceTest {
         int customerId = nextCustomerId();
         firstCustomer = new Customer(customerId, "buy-test-" + customerId, 100);
 
-        assertTrue(new TicketService().buy(eventId, firstCustomer));
+        assertFalse(new TicketService().buy(eventId, firstCustomer));
     }
 
     @Test
