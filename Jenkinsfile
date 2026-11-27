@@ -3,20 +3,28 @@ pipeline {
     tools {
         maven 'maven'
     }
+    options {
+        skipStagesAfterUnstable()
+    }
     stages {
         stage('Build') {
             steps {
-                bat 'mvn clean compile'
+                bat 'mvn -B -DskipTests clean package'
             }
         }
         stage('Test') {
             steps {
                 bat 'mvn test'
             }
+            post {
+                always {
+                    junit 'target/surefire-reports/*.xml'
+                }
+            }
         }
-        stage('Package') {
+        stage('Deliver') {
             steps {
-                bat 'mvn package -DskipTests' 
+                bat 'jenkins\\scripts\\deliver.bat'
             }
         }
     }
